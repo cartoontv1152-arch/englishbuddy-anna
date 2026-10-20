@@ -12,7 +12,7 @@ Follow the current Build on Anna 101 direct publication flow: `apps publish --dr
 
 Then submit that exact tested candidate for review and confirm `review_candidate_version`. An Anna `pending_review` result is an upload and review submission, not a public Marketplace release. Release only the exact approved candidate after Anna administrator approval.
 
-Verification and remote release identifiers are recorded after the checks finish.
+The first immutable upload and installed version are recorded below. Review and public release are separate platform steps.
 
 ## Local verification, 2026-10-20
 
@@ -24,3 +24,32 @@ Verification and remote release identifiers are recorded after the checks finish
 - Phrase save, search, practice, removal/Undo, preferences, and JSON export were exercised. The actual exported JSON file was verified on disk with one conversation and one saved expression.
 - Six listing screenshots were captured from the actual final UI with synthetic practice text. Full harness captures remain ignored under output; the published screenshots contain only the app region.
 - The direct publish dry run resolves app 616 / englishbuddy-chat and immutable version 1.0.0. This Windows Node/CLI combination prints a libuv shutdown assertion after its dry-run plan; inspect the meaningful plan and verify remote status after any upload rather than inferring success from exit code alone.
+
+## Anna upload and installed verification, 2026-10-20
+
+- Chrome-authorized Anna account: `cartoontv1152_1689`, developer handle `smillu`. GitHub source owner: `cartoontv1152-arch`.
+- App ID `616`; slug `englishbuddy-chat`; immutable version `1.0.0`; version ID `1519`.
+- Bundle ready: seven files, 100,096 bytes. Content hash: `fdbfb2185d9817b75e6903ccdbd7cd7b36e9b61e3e2fbf5815685d814d5a65df`.
+- `apps sync-meta` uploaded the logo and all six screenshots, and saved the GitHub homepage, support, and privacy links.
+- Developer installation succeeded. `apps grants` reports `installed_version: 1.0.0`, `is_enabled: true`, `satisfied: true`, and no missing grants. Only Host `llm.complete`, private KV storage, and window lifecycle methods are declared; no Agent or Executa is required.
+- The installed Chrome iframe resolved `/anna-apps/smillu/englishbuddy-chat/1.0.0/index.html`. Clicking **Talk about my day** sent the displayed sample immediately and returned a real conversational reply.
+- A second real request using “Yesterday I go to the park with my friend. We played football.” returned a contextual football reply and corrected “I go to the park” to “I went to the park.” The expression “fresh air” was saved to the phrasebook, with **Saved to Anna** visible.
+- Downloaded production `app.js` and `styles.css` have the same SHA-256 hashes as the local tested bundle. Production proof is kept locally at ignored `output/production-chat.png`.
+- Verification limitation: subsequent Chrome automated reopen attempts stalled before the iframe document loaded. Anna's built-in Apps window also stalled, and browser debugging reported a paused document response. The installed real chat/correction/save chain above passed, but production cross-window persistence was not independently confirmed in that later attempt. Fresh-chat behavior and APS persistence passed the earlier real development-harness checks. Recheck a normal production reopen after browser automation releases the tab.
+
+## Review submission
+
+`apps submit-review englishbuddy-chat --account https://anna.partners --json` succeeded. A separate status read confirmed:
+
+```json
+{
+  "app_id": 616,
+  "slug": "englishbuddy-chat",
+  "status": "pending_review",
+  "is_published": false,
+  "review_candidate_version": "1.0.0",
+  "latest_version": { "id": 1519, "version": "1.0.0" }
+}
+```
+
+The app is installed for the developer account and submitted for review. It is not Marketplace-public. After Anna approves version `1.0.0`, verify a normal production reopen and release that exact approved candidate using the then-current documented release action. Do not upload another bundle using this immutable version number.
