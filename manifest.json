@@ -1,0 +1,44 @@
+{
+  "schema": 3,
+  "host_capabilities": ["llm.complete"],
+  "storage": { "kv": true, "files": false },
+  "required_executas": [],
+  "optional_executas": [],
+  "system_prompt_addendum": "EnglishBuddy is a friendly English conversation practice app. Open its main view to let the user practise immediately. Keep conversation welcoming and adapt vocabulary to the user's level. Offer short, gentle corrections without changing the learner's intended meaning; valid English dialects are not mistakes. Never claim to assess pronunciation from text. This app intentionally uses Anna Host LLM and private Anna Storage without an Executa.",
+  "tags": ["english", "language", "conversation", "learning", "practice"],
+  "ui": {
+    "bundle": {
+      "format": "static-spa",
+      "entry": "index.html",
+      "external_origins": []
+    },
+    "form_factors": ["desktop", "mobile"],
+    "views": [
+      {
+        "name": "main",
+        "title": "EnglishBuddy",
+        "default": true,
+        "entry": "index.html",
+        "default_size": { "w": 1200, "h": 820 },
+        "min_size": { "w": 320, "h": 520 },
+        "max_size": { "w": 1720, "h": 1280 },
+        "resizable": true,
+        "movable": true,
+        "single_instance": true,
+        "summary_template": "English conversation practice, gentle language notes, and a personal phrasebook"
+      }
+    ],
+    "host_api": {
+      "llm": ["complete"],
+      "storage": ["get", "set", "delete"],
+      "window": ["set_title", "ready"]
+    },
+    "csp_overrides": { "script-src": ["'self'"] },
+    "state_merge": "last_writer_wins"
+  },
+  "dev": {
+    "fixtures": ["fixtures/*.jsonl"],
+    "seed_storage": {},
+    "user_id": 1
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+.anna/
+.env*
+!.env.example
+output/
+test-results/
+*.log
+manifest.qa-*.json
+.DS_Store

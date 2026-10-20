@@ -1,0 +1,24 @@
+{
+  "name": "englishbuddy-anna",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Friendly English conversation practice for Anna",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.js",
+    "validate": "anna-app validate --strict",
+    "check": "node scripts/check-identity.mjs && npm run build && npm test && npm run validate",
+    "dev": "anna-app dev --port 5206 --slug englishbuddy-chat --llm-app-slug englishbuddy-chat --storage aps --llm-account https://anna.partners",
+    "dev:mock": "anna-app dev --port 5205 --slug englishbuddy-chat --mock-llm fixtures/conversation.jsonl",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.2.6",
+    "@phosphor-icons/core": "^2.1.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.9",
+    "sharp": "^0.35.5"
+  }
+}

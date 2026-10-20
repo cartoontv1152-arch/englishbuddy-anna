@@ -1,0 +1,21 @@
+{
+  "slug": "englishbuddy-chat",
+  "name": "EnglishBuddy",
+  "version": "1.0.0",
+  "tagline": "A friendly conversation. A little better English, every day.",
+  "description": "Open EnglishBuddy and start chatting in English right away. Buddy keeps the conversation going with short, friendly replies and one natural follow-up question. Get gentle, optional language notes that show your original words, a clearer version, and a simple explanation. Save useful expressions from your conversations to a searchable phrasebook, then bring them back into practice. Choose a comfortable English level, try everyday situations such as a cafe or work conversation, and return to saved chats. Conversations, preferences, and saved phrases use your private Anna Storage. The app uses Anna's built-in AI with your existing quota; no separate account, model API key, or bundled Executa is needed. This version offers text conversation practice, not voice or pronunciation assessment.",
+  "changelog": "First release: immediate English chat, gentle language notes, saved conversations, a searchable phrasebook, practice topics, and export.",
+  "category": "education",
+  "logo_file": "listing-assets/englishbuddy-logo.png",
+  "screenshots": [
+    "listing-assets/01-conversation.jpg",
+    "listing-assets/02-gentle-feedback.jpg",
+    "listing-assets/03-phrasebook.jpg",
+    "listing-assets/04-expression-practice.jpg",
+    "listing-assets/05-preferences.jpg",
+    "listing-assets/06-mobile-chat.jpg"
+  ],
+  "homepage_url": "https://github.com/cartoontv1152-arch/englishbuddy-anna",
+  "support_url": "https://github.com/cartoontv1152-arch/englishbuddy-anna/issues",
+  "privacy_url": "https://github.com/cartoontv1152-arch/englishbuddy-anna/blob/main/PRIVACY.md"
+}
